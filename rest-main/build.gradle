@@ -1,0 +1,57 @@
+
+buildscript {
+		dependencies {
+				classpath 'eu.appsatori:gradle-fatjar-plugin:0.2-rc1'
+		}
+}
+
+apply plugin: 'war'
+apply plugin: 'fatjar'
+
+dependencies {
+	compile project(':rest-common')
+		
+	compile "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion"
+    compile "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcatVersion"
+    compile "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion"
+    compile "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$tomcatVersion"
+    compile "org.apache.tomcat:tomcat-dbcp:$tomcatVersion"
+
+    compile "com.sun.jersey:jersey-server:$jerseyVersion"
+    compile "com.sun.jersey:jersey-servlet:$jerseyVersion"
+    compile "com.sun.jersey:jersey-json:$jerseyVersion"
+    compile "com.sun.jersey.contribs:jersey-guice:$jerseyVersion"
+
+    testCompile "com.sun.jersey:jersey-client:$jerseyVersion"
+
+    compile "com.google.inject.extensions:guice-servlet:$guiceVersion"
+    compile "com.google.inject.extensions:guice-persist:$guiceVersion"
+
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonDatabindVersion"
+    compile "com.fasterxml.jackson.core:jackson-core:$jacksonCoreVersion"
+    compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:$jacksonJaxrsJsonProviderVersion"
+
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+    runtime "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
+    runtime "com.oracle:ojdbc6:$ojdbc6Version"
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs += 'src/main/webapp'
+        }
+    }
+}
+
+war {
+    baseName = "restdeploy"
+}
+
+fatJar {
+		baseName = 'restdeploy'
+    manifest {
+        attributes 'Main-Class': 'com.rest.hgq.start.LaucherServer'
+    }
+    exclude 'META-INF/MANIFEST.MF', '**/*.RSA', '**/*.SF', '**/*.DSA'
+}
