@@ -39,6 +39,8 @@ public class LauncherServer {
             }
         });
 
+
+
         Tomcat tomcat= new Tomcat();
         tomcat.enableNaming();
 
@@ -51,7 +53,7 @@ public class LauncherServer {
             context = tomcat.addWebapp("/rest", new File(webappDirLocation).getAbsolutePath());
         } catch (ServletException e) {
             logger.error(e.getMessage());
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
 
         context.addFilterDef(createFilterDef("guiceFilter", injector.getInstance(GuiceFilter.class)));
@@ -63,7 +65,7 @@ public class LauncherServer {
             tomcat.start();
         } catch (LifecycleException e) {
             logger.error(e.getMessage());
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
         }
         tomcat.getServer().await();
     }
