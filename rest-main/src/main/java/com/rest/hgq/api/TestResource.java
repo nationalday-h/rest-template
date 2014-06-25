@@ -21,6 +21,6 @@ public class TestResource {
 
     @GET
     public Response testGet(){
-        return Response.status(Response.Status.OK).entity("测试get返回").build();
+        return Response.status(Response.Status.OK).entity("测试Rest服务get返回成功").build();
     }
 }

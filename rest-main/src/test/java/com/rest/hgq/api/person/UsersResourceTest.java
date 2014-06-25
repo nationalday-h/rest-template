@@ -21,6 +21,7 @@ public class UsersResourceTest extends AbstractResourceTest {
     @Test
     public void should_return_addUser() throws Exception {
         Users users=new Users();
+        users.setUserId(10);
         users.setUsername("test_add");
         users.setPassword("123");
 //        ClientResponse response = createSpecificClient().resource(BASE_URI).path("user")

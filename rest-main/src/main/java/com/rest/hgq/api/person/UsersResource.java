@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
  */
 @Path("user")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 public class UsersResource {
     private static final Logger logger = LoggerFactory.getLogger(UsersResource.class);
 

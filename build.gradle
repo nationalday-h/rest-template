@@ -1,6 +1,6 @@
 allprojects {
     group = 'com.rest.hgq'
-    version = '0.1.0-SNAPSHOT'
+//    version = '0.1.0-SNAPSHOT'
 
     sourceCompatibility = '1.7'
     //[compileJava, javadoc, compileTestJava]*.options*.encoding = 'UTF-8'

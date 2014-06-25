@@ -223,7 +223,7 @@ public abstract class AbstractResourceTest  {
             return jsonNode.asBoolean();
         }
         if (value instanceof Double) {
-            jsonNode.asDouble();
+            return jsonNode.asDouble();
         }
         return jsonNode.asText();
     }

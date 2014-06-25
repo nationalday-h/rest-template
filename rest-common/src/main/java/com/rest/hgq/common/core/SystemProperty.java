@@ -19,9 +19,14 @@ public class SystemProperty {
     private static final String DEFAULT_CONFIG_FILENAME = "rest.properties";
     private static final String HEREN_HOME = "HEREN_HOME";
 
+    public static Map<String, String> getHerenProperty() {
+        return herenProperty;
+    }
+
     public SystemProperty() {
         herenProperty = new HashMap();
         systemProperty = new HashMap();
+
     }
 
     static {

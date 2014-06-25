@@ -45,13 +45,13 @@ sourceSets {
 }
 
 war {
-    baseName = "restdeploy"
+    baseName = "rest"
 }
 
 fatJar {
-		baseName = 'restdeploy'
+		baseName = 'rest'
     manifest {
-        attributes 'Main-Class': 'com.rest.hgq.start.LaucherServer'
+        attributes 'Main-Class': 'com.rest.hgq.start.LauncherServer'
     }
     exclude 'META-INF/MANIFEST.MF', '**/*.RSA', '**/*.SF', '**/*.DSA'
 }

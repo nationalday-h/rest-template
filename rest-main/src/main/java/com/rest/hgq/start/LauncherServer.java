@@ -46,6 +46,7 @@ public class LauncherServer {
 
         tomcat.setPort(8089);
         String webappDirLocation = "rest-main/src/main/webapp/";
+//        String webappDirLocation = System.getProperty("user.dir");
         Context context = null;
 
         logger.info("user.dir=" +System.getProperty("user.dir"));

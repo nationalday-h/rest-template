@@ -12,7 +12,7 @@ public class Users {
      * 用户主键
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "USER_ID")
     private Integer userId;
 
